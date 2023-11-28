@@ -3,23 +3,126 @@
   margin: 0;
   padding: 0;
 }
+html {
+}
 
 body {
-  background-image: url("images/amazon_forest.jpg");
+  background-image: url("images/amazon_lg.jpg");
+  background-size: 145rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 99vh;
   overflow: hidden;
   font-family: "Optima", sans-serif, "Perpetua", serif;
+  color: #faebd7;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  border: 2px solid #11922d;
+  color: #2c5e1b;
+  background-color: #faebd7;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .body_wrapper {
-  background-color: #144c00;
-  width: 50rem;
-  height: 40rem;
-  display: flex;
-  justify-content: center;
+  background-color: #144c00b3;
+  border-radius: 10px;
+  border: 2px solid #faebd7af;
+  width: 55rem;
+  height: 60rem;
 }
 
 .header_wrapper {
+  flex-direction: row;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 2rem 0rem;
+}
+
+.title,
+.switch {
+  display: flex;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.description_section {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 2rem 3rem;
+}
+
+.timer_wrapper {
+  text-align: center;
+  margin: 2rem;
+  font-size: 3rem;
+}
+
+.btns_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.start_btn,
+.reset_btn {
+  margin: 1rem 1rem;
+}
+
+.board_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.playboard,
+.score_list {
+  margin: 1rem;
+}
+
+.playboard {
+  display: grid;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 10px;
+  border: 1px solid #faebd7;
+  background-color: #11922d;
+  grid-area: repeat(1fr, 30) / repeat(1fr, 30);
+}
+
+.score_list {
+  width: 15rem;
+  height: 30rem;
+  background-color: #faebd7;
+  border: 1px solid #11922d;
+  color: #2c5e1b;
+  border-radius: 10px;
+}
+
+.score_list h3 {
+  text-align: center;
+  margin: 1rem;
+}
+
+.score_list ul {
+  margin: 1rem 2rem;
+}
+
+.score_list li {
+  list-style: none;
+  margin: 0.5rem 0rem;
 }

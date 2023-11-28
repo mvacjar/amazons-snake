@@ -8,27 +8,44 @@
   </head>
   <body>
     <div class="body_wrapper">
-      <header class="header_wrapper">
-        <h1 class="title">Amazon's Snake</h1>
-        <button class="switch" id="switch">Switch to Night</button>
-      </header>
+      <div class="header_wrapper">
+        <div class="header">
+          <h1 class="title">Amazon's Snake</h1>
+          <button class="switch" id="switch">Switch to Night</button>
+        </div>
+      </div>
 
-      <section class="description_wrapper">
-        <p class="description" id="description"></p>
-      </section>
+      <div class="description_section">
+        <p class="description" id="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+          placeat laborum porro rerum, quibusdam est error dolores eligendi quos
+          facere inventore, unde iusto nesciunt numquam maxime cumque delectus
+          dolore dicta?
+        </p>
+      </div>
 
-      <section class="main_btn">
-        <button class="start_btn" id="start_btn">Start</button>
-        <button class="reset_btn" id="reset_btn">Reset</button>
-      </section>
+      <div class="timer_wrapper">
+        <div class="timer" id="timer">01:00</div>
+      </div>
 
-      <section class="board_wrapper">
-        <article class="playboard" id="playboard"></article>
-        <article class="score_list" id="score_list">
-          <h3 class="board_title" id="boar_title"></h3>
-          <ul class="list" id="list"></ul>
-        </article>
-      </section>
+      <div class="btns_wrapper">
+        <div class="main_btns">
+          <button class="start_btn" id="start_btn">Start</button>
+          <button class="reset_btn" id="reset_btn">Reset</button>
+        </div>
+      </div>
+
+      <div class="board_wrapper">
+        <section class="playboard" id="playboard">Game</section>
+        <section class="score_list" id="score_list">
+          <h3 class="board_title" id="boar_title">Score List</h3>
+          <ul class="list" id="list">
+            <li>m</li>
+            <li>m</li>
+            <li>m</li>
+          </ul>
+        </section>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

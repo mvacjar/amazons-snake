@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("images/amazon_forest.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Optima", sans-serif, "Perpetua", serif;
+}
+
+.body_wrapper {
+  background-color: #144c00;
+  width: 50rem;
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+}
+
+.header_wrapper {
+}

@@ -7,21 +7,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="body_wrapper">
       <header class="header_wrapper">
-        <h1 class="title"></h1>
-        <button class="switch" id="switch"></button>
+        <h1 class="title">Amazon's Snake</h1>
+        <button class="switch" id="switch">Switch to Night</button>
       </header>
+
       <section class="description_wrapper">
         <p class="description" id="description"></p>
       </section>
+
       <section class="main_btn">
-        <button class="start_btn" id="start_btn"></button>
-        <button class="reset_btn" id="reset_btn"></button>
+        <button class="start_btn" id="start_btn">Start</button>
+        <button class="reset_btn" id="reset_btn">Reset</button>
       </section>
+
       <section class="board_wrapper">
         <article class="playboard" id="playboard"></article>
-        <article class="score_list" id="score_list"></article>
+        <article class="score_list" id="score_list">
+          <h3 class="board_title" id="boar_title"></h3>
+          <ul class="list" id="list"></ul>
+        </article>
       </section>
     </div>
     <script src="script.js"></script>

@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="body_wrapper">
+    <div class="body_wrapper" id="body_wrapper">
       <div class="header_wrapper">
         <div class="header">
           <h1 class="title">Amazon's Snake</h1>
-          <button class="switch" id="switch">Switch to Night</button>
+          <button class="switch_to_dark" id="switch_to_dark">
+            Switch to Night
+          </button>
         </div>
       </div>
 
@@ -36,18 +38,27 @@
       </div>
 
       <div class="board_wrapper">
-        <section class="playboard" id="playboard">Game</section>
-        <section class="score_list" id="score_list">
+        <div id="playboard_wrapper">
+          <div class="playboard" id="playboard"></div>
+          <div class="controls">
+            <i data-key="ArrowLeft"></i>
+            <i data-key="ArrowUp"></i>
+            <i data-key="ArrowRight"></i>
+            <i data-key="ArrowDown"></i>
+          </div>
+        </div>
+        <div class="score_list" id="score_list">
           <h3 class="board_title" id="boar_title">Score List</h3>
           <ul class="list" id="list">
+            <li id="high_score"></li>
             <li>m</li>
             <li>m</li>
             <li>m</li>
           </ul>
-        </section>
+        </div>
       </div>
     </div>
-    <script src="darkMode.js"></script>
     <script src="script.js"></script>
+    <script src="darkMode.js"></script>
   </body>
 </html>

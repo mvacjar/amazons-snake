@@ -21,11 +21,13 @@ body {
 button {
   padding: 0.8rem 2rem;
   border-radius: 7px;
-  border: 2px solid #11922d;
+  border: 2px solid #2c5e1b;
   color: #2c5e1b;
   background-color: #faebd7;
+  box-shadow: 3px 3px 7px #263d2d;
   font-weight: 600;
   font-size: 1rem;
+  transform: translateY(4px);
 }
 
 .body_wrapper {
@@ -33,8 +35,9 @@ button {
   box-shadow: 3px 3px 10px #2e5526;
   border-radius: 10px;
   border: 2px solid #faebd7af;
-  width: 58rem;
-  height: 63rem;
+  max-width: 60rem;
+  padding: 3rem 3rem 5rem;
+  margin: 3rem;
 }
 
 .header_wrapper {
@@ -59,7 +62,7 @@ button {
   border: 2px solid #7eacf2;
   color: #91baf7;
   background-color: #1d2e6f;
-  box-shadow: 3px 3px 10px #1d2e6f;
+  box-shadow: 3px 3px 7px #263d2d;
 }
 
 .title {
@@ -70,6 +73,7 @@ button {
   display: flex;
   flex-wrap: nowrap;
   margin: 2rem 3rem;
+  font-size: 1.5rem;
 }
 
 .timer_wrapper {
@@ -104,9 +108,9 @@ button {
 
 .playboard {
   border-radius: 10px;
-  border: 1px solid #faebd7;
-  background-color: #89b8f5;
-  box-shadow: 3px 3px 10px #9b6b09;
+  border: 2px solid #faebd7;
+  background-color: #263d2d;
+  box-shadow: 3px 3px 7px #263d2d;
   width: 30rem;
   height: 30rem;
   display: grid;
@@ -115,21 +119,25 @@ button {
 
 /* Game settings */
 
-.playboard .food{
+.playboard .food {
   background-color: #ff003d;
 }
 
-.playboard .head{
-  background-color: #017418;
+.playboard .head {
+  background-color: rgb(193, 255, 7);
+}
+
+.playboard .bomb {
+  background-color: #391d04;
 }
 
 .score_list {
   width: 15rem;
   height: 30rem;
-  background-color: #8b92ff;
-  box-shadow: 3px 3px 10px #535793;
-  border: 1px solid #faebd7;
-  color: #faebd7;
+  background-color: #faebd7;
+  box-shadow: 3px 3px 7px #263d2d;
+  border: 2px solid #2c5e1b;
+  color: #2c5e1b;
   border-radius: 10px;
 }
 
@@ -161,35 +169,36 @@ button {
 }
 
 .dark .switch_to_dark {
-  border: 2px solid #7eacf2;
-  color: #91baf7;
-  background-color: #1d2e6f;
-  box-shadow: 3px 3px 10px #1d2e6f;
+  box-shadow: 3px 3px 7px #1d2e6f;
+  border: 2px solid #2c5e1b;
+  color: #2c5e1b;
+  background-color: #faebd7;
+  padding: 0.8rem 2.2rem;
 }
 
 .dark .start_btn {
   border: 2px solid #7eacf2;
   color: #91baf7;
   background-color: #1d2e6f;
-  box-shadow: 3px 3px 10px #1d2e6f;
+  box-shadow: 3px 3px 7px #1d2e6f;
 }
 
 .dark .reset_btn {
   border: 2px solid #7eacf2;
   color: #91baf7;
   background-color: #1d2e6f;
-  box-shadow: 3px 3px 10px #1d2e6f;
+  box-shadow: 3px 3px 7px #1d2e6f;
 }
 
 .dark .playboard {
   background-color: #041139;
-  box-shadow: 3px 3px 10px #1d2e6f;
+  box-shadow: 3px 3px 7px #1d2e6f;
   border: 2px solid #588ad5;
 }
 
 .dark .score_list {
   background-color: #1d2e6f;
-  box-shadow: 3px 3px 10px #1d2e6f;
+  box-shadow: 3px 3px 7px #1d2e6f;
   border: 2px solid #588ad5;
   color: #91baf7;
 }
@@ -200,3 +209,8 @@ button {
   background-color: #faebd7;
 }
 
+.day {
+  border: 2px solid #11922d;
+  color: #2c5e1b;
+  background-color: #faebd7;
+}

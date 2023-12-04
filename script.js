@@ -75,17 +75,23 @@ const initGame = () => {
   playBoard.innerHTML = placeItem;
 }
 
-let frequency = 200;
 
+
+function speedUp() {
+    document.addEventListener('keydown', function(e){
+        if(e.key == ' '){
+          speed /= 2;
+          clearInterval(setIntervalId);
+          setIntervalId = setInterval(initGame, speed);
+          console.log(speed);
+        }
+        return speed
+    })
+};
+
+let speed = 200;
 changeFoodPosition();
-document.addEventListener('keydown', function(e){
-  if(e.key == ' '){
-    setIntervalId = setInterval(initGame, 150);
-    console.log(frequency);
-  } else {
-    changeDirection(e);
-  }
-});
+speedUp();
+setIntervalId = setInterval(initGame, speed);
+document.addEventListener("keyup", changeDirection);
 
-
-setIntervalId = setInterval(initGame, 200);

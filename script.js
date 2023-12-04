@@ -1,4 +1,4 @@
-// Declaring the variables
+// Declaring variables
 const playBoard = document.querySelector("#playboard");
 let foodX, foodY;
 let snakeX = 5,
@@ -8,6 +8,7 @@ let velocityX = 0,
 let snakeBody = [];
 let gameOver = false;
 let setIntervalId;
+let speed = 200;
 
 // Place the fruit (food) randomly
 const changeFoodPosition = () => {
@@ -52,6 +53,7 @@ const initGame = () => {
     snakeBody.push([foodX, foodY]);
   }
 
+  // Push the fruit position to the 0/last element of the body-array
   for (let i = snakeBody.length - 1; i > 0; i--) {
     snakeBody[i] = snakeBody[i - 1];
   }
@@ -63,12 +65,16 @@ const initGame = () => {
   snakeX += velocityX;
   snakeY += velocityY;
 
+  // Collision walls
   if (snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {
     gameOver = true;
   }
 
+  // Read the array snake body
   for (let i = 0; i < snakeBody.length; i++) {
     placeItem += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+
+    // Check for a collision between the head and any other body parts
     if (
       i !== 0 &&
       snakeBody[0][1] === snakeBody[i][1] &&
@@ -81,6 +87,7 @@ const initGame = () => {
   playBoard.innerHTML = placeItem;
 };
 
+// Sett the double speed
 function speedUp() {
   document.addEventListener("keydown", function (e) {
     if (e.key == " ") {
@@ -93,7 +100,6 @@ function speedUp() {
   });
 }
 
-let speed = 200;
 changeFoodPosition();
 speedUp();
 setIntervalId = setInterval(initGame, speed);

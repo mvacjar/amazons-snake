@@ -1,7 +1,7 @@
 
 // Declaring variables
 const arrowKeys = { left: false, up: false, right: false, down: false }; // setting object of arrowkeys to false
-const speedKeys = { up: false, down: false };
+let speedKeys = { up: false, down: false };
 const playBoard = document.querySelector("#playboard");
 let foodX, foodY;
 let snakeX = 5,
@@ -76,17 +76,24 @@ function movePlayer() {
 }
 
 
+let changeSpeedMarker = 0;
+
 // Sett the double speed
-function changeSspeed() {
-  if (speedKeys.up === true) {
+function changeSpeed() {
+  if (speedKeys.up === true && changeSpeedMarker >= 0 && changeSpeedMarker < 4) {
+      changeSpeedMarker ++;
       speed /= 2; // increase speed (double)
-      clearInterval(setIntervalId);
-      setIntervalId = setInterval(initGame, speed);
-  } else if (speedKeys.down === true) {
-      speed *= 2; // decrease speed (half)
-      clearInterval(setIntervalId);
-      setIntervalId = setInterval(initGame, speed);
-  }
+      clearInterval(setIntervalId); // clear previous interval
+      setIntervalId = setInterval(initGame, speed); //set interval with the new halfed(plays as double in game) speed
+      console.log(changeSpeedMarker);
+      
+  } else if (speedKeys.down === true && changeSpeedMarker >= 1 && changeSpeedMarker < 5) {
+            changeSpeedMarker--;
+            speed *= 2; // decrease speed (half)
+            clearInterval(setIntervalId);
+            setIntervalId = setInterval(initGame, speed);
+            console.log(changeSpeedMarker);
+        }
   return speed;
 };
 
@@ -136,6 +143,7 @@ const initGame = () => {
   playBoard.innerHTML = placeItem;
   movePlayer();
   handleGamepadInput();
+  changeSpeed();
 };
 
 // Handle arrow key presses. If an arrowkey is pressed then bolean is set to true.
@@ -164,5 +172,4 @@ window.addEventListener("gamepadconnected", handleGamepadConnected);
 initGame();
 setIntervalId = setInterval(initGame, speed);
 changeFoodPosition();
-changeSpeed();
 

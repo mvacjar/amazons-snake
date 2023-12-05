@@ -76,26 +76,36 @@ function movePlayer() {
 }
 
 
+let lastSpeedChangeTime = 0; // Variable to store the time of the last speed change
 let changeSpeedMarker = 0;
 
-// Sett the double speed
 function changeSpeed() {
-  if (speedKeys.up === true && changeSpeedMarker >= 0 && changeSpeedMarker < 4) {
-      changeSpeedMarker ++;
-      speed /= 2; // increase speed (double)
-      clearInterval(setIntervalId); // clear previous interval
-      setIntervalId = setInterval(initGame, speed); //set interval with the new halfed(plays as double in game) speed
-      console.log(changeSpeedMarker);
-      
-  } else if (speedKeys.down === true && changeSpeedMarker >= 1 && changeSpeedMarker < 5) {
+    // Get the current timestamp in milliseconds
+    const currentTime = new Date().getTime();
+
+    // Check if at least one second (1000 milliseconds) has passed since the last speed change
+    if (currentTime - lastSpeedChangeTime >= 1000) {
+        if (speedKeys.up === true && changeSpeedMarker >= 0 && changeSpeedMarker <= 3) {
+            // Increment changeSpeedMarker and adjust speed
+            changeSpeedMarker++;
+            speed /= 2;
+            lastSpeedChangeTime = currentTime; // Update last speed change time
+            clearInterval(setIntervalId);
+            setIntervalId = setInterval(initGame, speed);
+            console.log(changeSpeedMarker);
+        } else if (speedKeys.down === true && changeSpeedMarker >= 1 && changeSpeedMarker <= 3) {
+            // Decrement changeSpeedMarker and adjust speed
             changeSpeedMarker--;
-            speed *= 2; // decrease speed (half)
+            speed *= 2;
+            lastSpeedChangeTime = currentTime; // Update last speed change time
             clearInterval(setIntervalId);
             setIntervalId = setInterval(initGame, speed);
             console.log(changeSpeedMarker);
         }
-  return speed;
+    }
+    return speed;
 };
+
 
 
 // Initializing the game when function is called by intervals

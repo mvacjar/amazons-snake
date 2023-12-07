@@ -1,16 +1,35 @@
-function swishToDark() {
-  let body = document.querySelector("body");
+let modeBtnEl = document.querySelector("#switch_to_dark");
+let body = document.querySelector("body");
+let screenMode = JSON.parse(localStorage.getItem("screenMode")) || "light";
 
+// Toggle between dark and light mode. 
+// When body has class 'dark', update screenMode to store 'dark' 
+// on localStorage for updateOnLaunch() on next reload
+modeBtnEl.addEventListener("click", function () {
+  body.classList.toggle("dark");
   if (body.classList.contains("dark")) {
-    body.classList.remove("dark");
-    changeToDay.innerHTML = "Change to Night";
+    screenMode = localStorage.setItem("screenMode", JSON.stringify("dark"));
+    modeBtnEl.textContent = "Change to Day";
   } else {
-    body.classList.add("dark");
-    changeToDay.innerHTML = "Change to Day";
+    screenMode = localStorage.setItem("screenMode", JSON.stringify("light"));
+    modeBtnEl.textContent = "Change to Night";
+  }
+});
+
+// Function to update the CSS of the site on launch 
+function updateOnLaunch() {
+  switch (screenMode) {
+    case "light":
+      body.classList.remove("dark");
+      modeBtnEl.textContent = "Change to Night";
+      console.log(screenMode);
+      break;
+    case "dark":
+      body.classList.add("dark");
+      modeBtnEl.textContent = "Change to Day";
+      console.log(screenMode);
+      break;
   }
 }
 
-let button = document.querySelector(".switch_to_dark");
-button.addEventListener("click", swishToDark);
-
-let changeToDay = document.querySelector("#switch_to_dark");
+updateOnLaunch();

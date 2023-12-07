@@ -13,9 +13,6 @@ import {
 const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
 const controls = document.querySelectorAll(".arrow_keys_container div");
-// let modeBtnEl = document.querySelector("#switch_to_dark");
-// let body = document.querySelector("body");
-// let screenMode = JSON.parse(localStorage.getItem("screenMode")) || "light";
 let foodX, foodY;
 let snakeX = 5,
   snakeY = 10;
@@ -70,33 +67,6 @@ let player3ScoreEl = document.querySelector("#player3Score");
 player3NameEl.textContent = player3Name;
 player3ScoreEl.textContent = player3Score;
 
-// // Declare the switch button to call localStorage
-// modeBtnEl.addEventListener("click", function () {
-//   body.classList.toggle("dark");
-//   if (body.classList.contains("dark")) {
-//     screenMode = localStorage.setItem("screenMode", JSON.stringify("dark"));
-//     modeBtnEl.textContent = "Change to Day";
-//   } else {
-//     screenMode = localStorage.setItem("screenMode", JSON.stringify("light"));
-//     modeBtnEl.textContent = "Change to Night";
-//   }
-// });
-
-// // Function to switch the Nigth/Day mode
-// function updateOnLaunch() {
-//   switch (screenMode) {
-//     case "light":
-//       body.classList.remove("dark");
-//       modeBtnEl.textContent = "Change to Night";
-//       console.log(screenMode);
-//       break;
-//     case "dark":
-//       body.classList.add("dark");
-//       modeBtnEl.textContent = "Change to Day";
-//       console.log(screenMode);
-//       break;
-//   }
-// }
 
 // Place the fruit (food) randomly
 const changeFoodPosition = () => {
@@ -266,7 +236,6 @@ startBtnEl.addEventListener("click", function () {
 });
 
 changeFoodPosition();
-// updateOnLaunch();
 changeSpeed();
 setIntervalId = setInterval(initGame, speed);
 document.addEventListener("keydown", changeDirection);

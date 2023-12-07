@@ -26,28 +26,41 @@
         </p>
       </div>
 
-      <div class="timer_wrapper">
-        <div class="timer" id="timer">01:00</div>
-      </div>
-
-      <div class="btns_wrapper">
-        <div class="main_btns">
-          <button class="start_btn" id="start_btn">Start</button>
-          <button class="reset_btn" id="reset_btn">Reset</button>
-        </div>
-      </div>
-
       <div class="board_wrapper">
-        <div id="playboard_wrapper">
+        <div class="board-cover" id="boardCover">
+          <button class="start_btn" id="start_btn">Start</button>
+        </div>
+        <div id="playboard_wrapper" class="playboard_wrapper">
           <div class="playboard" id="playboard"></div>
-          <div class="controls">
-            <i data-key="ArrowLeft"></i>
-            <i data-key="ArrowUp"></i>
-            <i data-key="ArrowRight"></i>
-            <i data-key="ArrowDown"></i>
+          <div class="arrow_keys_container">
+            <div class="horizontal_buttons first_horizontal">
+              <div data-key="ArrowUp" class="arrow_button arrow_button_one">
+                &#8593;
+              </div>
+            </div>
+            <div class="horizontal_buttons second_horizontal">
+              <div data-key="ArrowLeft" class="arrow_button arrow_button_two">
+                &#8592;
+              </div>
+              <div data-key="ArrowDown" class="arrow_button arrow_button_three">
+                &#8595;
+              </div>
+              <div data-key="ArrowRight" class="arrow_button arrow_button_four">
+                &#8594;
+              </div>
+            </div>
+            <div class="horizontal_buttons first_horizontal">
+              <div
+                data-key="ArrowUp"
+                class="arrow_button arrow_button_one"
+                id="speedButton"
+              >
+                &#160;
+              </div>
+            </div>
           </div>
         </div>
-        <div class="score_list" id="score_list">
+        <!-- <div class="score_list" id="score_list">
           <h3 class="board_title" id="boar_title">Score List</h3>
           <ul class="list" id="list">
             <li id="high_score"></li>
@@ -55,10 +68,39 @@
             <li>m</li>
             <li>m</li>
           </ul>
+        </div> -->
+        <div class="control_wrapper">
+          <div class="timer_container">
+            <div class="timer_wrapper">
+              <div class="timer" id="timer"></div>
+              <div class="main_btns">
+                <button class="reset_btn" id="reset_btn">Reset</button>
+              </div>
+            </div>
+          </div>
+          <div class="score_container">
+            <div class="score_list" id="score_list">
+              <div class="score_header">
+                <h3>Current score: <span id="currentScore"></span></h3>
+              </div>
+              <h3 class="board_title" id="board_title">🏆 TOP 3 PLAYERS 🏆</h3>
+              <ul class="list" id="list">
+                <li class="score_line">
+                  <span id="player1Name"></span><span id="player1Score"></span>
+                </li>
+                <li class="score_line">
+                  <span id="player2Name"></span><span id="player2Score"></span>
+                </li>
+                <li class="score_line">
+                  <span id="player3Name"></span><span id="player3Score"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
     <script src="darkMode.js"></script>
   </body>
 </html>

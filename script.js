@@ -1,6 +1,12 @@
 import { countdown } from "./timer.js";
 import { checkScore } from "./score.js";
-import { handleGamepadConnected, handleGamepadInput, controllerIndex, speedKeys, arrowKeys } from "./gamepad.js";
+import {
+  handleGamepadConnected,
+  handleGamepadInput,
+  controllerIndex,
+  speedKeys,
+  arrowKeys,
+} from "./gamepad.js";
 
 // Declaring variables
 
@@ -22,7 +28,7 @@ let speed = 200;
 let currentScore = 0;
 let currentScoreEl = document.querySelector("#currentScore");
 currentScoreEl.textContent = currentScore;
-let timer = { minutes: "00", seconds: 60 };
+let timer = { minutes: "00", seconds: 30 };
 let timerEl = document.querySelector("#timer");
 let timerSetInterval;
 timerEl.textContent = "00:30";
@@ -149,7 +155,7 @@ function handleGamepadInputObjectChange() {
     velocityY = 0;
     console.log("controllerRight");
   }
-};
+}
 
 function changeSpeed() {
   // Get the current timestamp in milliseconds
@@ -181,7 +187,7 @@ function changeSpeed() {
       setIntervalId = setInterval(initGame, speed); //set the new interval with the new doubled speed
     }
   }
-};
+}
 
 // Initializing the game when function is called by intervals
 const initGame = () => {
@@ -259,28 +265,24 @@ startBtnEl.addEventListener("click", function () {
   }, 1000);
 });
 
-
-
 changeFoodPosition();
 // updateOnLaunch();
 changeSpeed();
 setIntervalId = setInterval(initGame, speed);
 document.addEventListener("keydown", changeDirection);
 
-
 //check if there is a controller connected, and if so run handleGamepadConnected
 window.addEventListener("gamepadconnected", handleGamepadConnected);
 window.addEventListener("gamepadbuttondown", handleGamepadInputObjectChange);
 
-
 // Handle arrow key presses for the controllerinput. If an arrowkey is pressed then bolean is set to true.
 document.addEventListener("keydown", (event) => {
-  if (event.key === " ") (speedKeys.up = true, console.log("Speed up"));
-  if (event.key === "Shift") (speedKeys.down = true, console.log("Speed Down"));
+  if (event.key === " ") (speedKeys.up = true), console.log("Speed up");
+  if (event.key === "Shift") (speedKeys.down = true), console.log("Speed Down");
 });
 
 // Handle arrow key releases for the controller input. When an arrowkey is released the bolean is set to false.
 document.addEventListener("keyup", (event) => {
-  if (event.key === " ") (speedKeys.up = false), (speedKeys);
-  if (event.key === "Shift") (speedKeys.down = false), (speedKeys);
+  if (event.key === " ") (speedKeys.up = false), speedKeys;
+  if (event.key === "Shift") (speedKeys.down = false), speedKeys;
 });

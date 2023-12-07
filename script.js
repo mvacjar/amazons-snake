@@ -224,14 +224,9 @@ const initGame = () => {
   if (snakeX === bombX && snakeY === bombY) {
     changeBombPosition();
     snakeBody.pop([bombX, bombY]);
-    currentScore -= 1;
-    currentScoreEl.textContent = currentScore;
   }
 
-  if (snakeBody.length = 0) {
-    gameOver.state = true;
-  }
-
+ 
   // Push the fruit position to the 0/last element of the body-array
   for (let i = snakeBody.length - 1; i > 0; i--) {
     snakeBody[i] = snakeBody[i - 1];
@@ -284,6 +279,7 @@ startBtnEl.addEventListener("click", function () {
 
 
 changeFoodPosition();
+changeBombPosition();
 // updateOnLaunch();
 changeSpeed();
 setIntervalId = setInterval(initGame, speed);

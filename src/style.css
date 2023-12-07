@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("images/cartoon_amazon1.jpg");
+  min-width: 99vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 99vh;
+  font-family: "Optima", sans-serif, "Perpetua", serif;
+  color: #faebd7;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+  border: 2px solid #2c5e1b;
+  color: #2c5e1b;
+  background-color: #faebd7;
+  box-shadow: 3px 3px 7px #263d2d;
+  font-weight: 600;
+  font-size: 1rem;
+  transform: translateY(4px);
+}
+
+.body_wrapper {
+  background-color: #84b87a94;
+  box-shadow: 3px 3px 10px #2e5526;
+  border-radius: 10px;
+  border: 2px solid #faebd7af;
+  padding: 3rem 3rem;
+  width: 60rem;
+  height: 55rem;
+  margin: 3rem;
+}
+
+/* Title and switch button */
+
+.header_wrapper {
+  flex-direction: row;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 1rem 0rem;
+}
+
+.title {
+  display: flex;
+  font-size: 4rem;
+  white-space: nowrap;
+}
+
+.switch_to_dark {
+  border: 2px solid #7eacf2;
+  color: #91baf7;
+  background-color: #1d2e6f;
+  box-shadow: 3px 3px 7px #263d2d;
+  white-space: nowrap;
+}
+
+/* Game Description */
+
+.description_section {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 2rem 3rem;
+  font-size: 1.5rem;
+}
+
+/* Board Cover with Start Button */
+
+.board-cover {
+  width: 30rem;
+  height: 30rem;
+  background-color: #263d2d;
+  box-shadow: 3px 3px 7px #263d2d;
+  border: 2px solid #faebd7;
+  /* top: 0;
+  left: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.start_btn {
+  margin: 1rem 1.5rem;
+}
+
+.start_btn:active {
+  box-shadow: 3px 3px 7px #faebd799;
+  transform: scale(0.95);
+}
+
+/* Game Board */
+
+.board_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.playboard_wrapper {
+  display: none;
+}
+
+.playboard {
+  border-radius: 10px;
+  border: 2px solid #faebd7;
+  background-color: #263d2d;
+  box-shadow: 3px 3px 7px #263d2d;
+  width: 30rem;
+  height: 30rem;
+  display: grid;
+  grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+}
+
+.arrow_keys_container {
+  display: none;
+}
+
+/* Game settings */
+
+.playboard .food {
+  background-color: #ff003d;
+}
+
+.playboard .head {
+  background-color: rgb(193, 255, 7);
+}
+
+/* Timmer and Score List */
+
+.control_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0rem 2rem;
+}
+
+/* Timmer */
+.timer_container {
+  display: flex;
+  justify-content: center;
+}
+
+.timer_wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+
+.reset_btn:active {
+  box-shadow: 3px 3px 7px #faebd799;
+  transform: scale(0.95);
+}
+
+/* Score List */
+
+.score_list {
+  width: 15rem;
+  height: 16rem;
+  background-color: #faebd7;
+  box-shadow: 3px 3px 7px #263d2d;
+  border: 2px solid #2c5e1b;
+  color: #2c5e1b;
+  border-radius: 10px;
+}
+
+.score_list h3 {
+  text-align: center;
+  margin: 1rem;
+}
+
+.score_list ul {
+  margin: 1rem 2rem;
+}
+
+.score_list li {
+  list-style: none;
+  margin: 0.5rem 0rem;
+}
+
+.list {
+  display: grid;
+  justify-content: center;
+}
+
+.score_line {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 2rem;
+}
+
+.score_header {
+  background-color: #263d2d;
+  color: #faebd7;
+  padding: 1rem 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.score_header h3 {
+  margin: 0;
+}
+
+@media screen and (max-width: 85rem) {
+  .title,
+  .switch_to_dark {
+    white-space: nowrap;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .playboard {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .score_list {
+    height: 15rem;
+  }
+}

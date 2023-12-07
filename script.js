@@ -1,5 +1,6 @@
 import { countdown } from "./timer.js";
 import { checkScore } from "./score.js";
+import { changeSpeed } from "./changespeed.js";
 
 // Declaring variables
 const playBoard = document.querySelector("#playboard");
@@ -185,5 +186,6 @@ function speedUp() {
 
 changeFoodPosition();
 speedUp();
+changeSpeed();
 setIntervalId = setInterval(initGame, speed);
 document.addEventListener("keydown", changeDirection);

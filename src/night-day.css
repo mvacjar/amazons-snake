@@ -3,11 +3,12 @@
 .dark {
   background-image: url("images/cartoon_night_amazon.jpg");
   color: #9ec3f9;
+  background-size: 150rem;
 }
 
 .dark .body_wrapper {
   background-color: #1d2d6f90;
-  box-shadow: 3px 3px 10px #1d2e6f;
+  box-shadow: 3px 3px 7px #0e1942;
   border: 2px solid #588ad5;
 }
 
@@ -31,24 +32,25 @@
   border: 2px solid #7eacf2;
   color: #91baf7;
   background-color: #1d2e6f;
-  box-shadow: 3px 3px 7px #1d2e6f;
+  box-shadow: 3px 3px 7px #0e1942;
 }
 
 .dark .board-cover {
   background-color: #1d2e6f;
   border: 2px solid #7eacf2;
+  box-shadow: 3px 3px 7px #0e1942;
 }
 
 .dark .playboard {
   background-color: #041139;
-  box-shadow: 3px 3px 7px #1d2e6f;
+  box-shadow: 3px 3px 7px #0e1942;
   border: 2px solid #588ad5;
 }
 
 .dark .arrow_button,
 .dark .score_list {
   background-color: #1d2e6f;
-  box-shadow: 3px 3px 7px #1d2e6f;
+  box-shadow: 3px 3px 7px #0e1942;
   border: 2px solid #588ad5;
   color: #91baf7;
 }

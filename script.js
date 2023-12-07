@@ -20,7 +20,7 @@ let speed = 200;
 let currentScore = 0;
 let currentScoreEl = document.querySelector("#currentScore");
 currentScoreEl.textContent = currentScore;
-let timer = { minutes: "00", seconds: 30 };
+let timer = { minutes: "00", seconds: 60 };
 let timerEl = document.querySelector("#timer");
 let timerSetInterval;
 timerEl.textContent = "00:30";

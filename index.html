@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="src/night-day.css" />
-    <link rel="stylesheet" href="src/media-queries.css" />
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -21,20 +20,20 @@
 
       <div class="description_section">
         <p class="description" id="description">
-          You are in the middle of the Amazon, hungry and so desperate that you
-          decide to become the first vegetarian snake in the world. Mmmm...
-          those apples look juicy...
+          You are a beautiful and smart snake in the middle of the Amazon,
+          hungry and so desperate that you decide to become the first vegetarian
+          snake in the world. Mmmm... those apples look juicy...
         </p>
       </div>
 
       <div class="board_wrapper">
-        <div class="board-cover" id="boardCover">
+        <div class="board_cover" id="boardCover">
           <button class="start_btn" id="start_btn">Start</button>
         </div>
         <div id="playboard_wrapper" class="playboard_wrapper">
           <div class="playboard" id="playboard"></div>
           <div class="arrow_keys_container">
-            <div class="horizontal_buttons first_horizontal">
+            <div class="horizontal_buttons up_horizontal">
               <div data-key="ArrowUp" class="arrow_button arrow_button_one">
                 &#8593;
               </div>
@@ -50,14 +49,41 @@
                 &#8594;
               </div>
             </div>
-            <div class="horizontal_buttons first_horizontal">
+            <div class="horizontal_buttons space_horizontal">
               <div
                 data-key="ArrowUp"
-                class="arrow_button arrow_button_one"
+                class="arrow_button arrow_button_five"
                 id="speedButton"
               >
                 &#160;
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="arrow_keys_container">
+          <div class="horizontal_buttons up_horizontal">
+            <div data-key="ArrowUp" class="arrow_button arrow_button_one">
+              &#8593;
+            </div>
+          </div>
+          <div class="horizontal_buttons second_horizontal">
+            <div data-key="ArrowLeft" class="arrow_button arrow_button_two">
+              &#8592;
+            </div>
+            <div data-key="ArrowDown" class="arrow_button arrow_button_three">
+              &#8595;
+            </div>
+            <div data-key="ArrowRight" class="arrow_button arrow_button_four">
+              &#8594;
+            </div>
+          </div>
+          <div class="horizontal_buttons space_horizontal">
+            <div
+              data-key="ArrowUp"
+              class="arrow_button arrow_button_five"
+              id="speedButton"
+            >
+              Space &#160;
             </div>
           </div>
         </div>

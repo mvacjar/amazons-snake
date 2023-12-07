@@ -1,0 +1,71 @@
+/* Switch to Night/Day */
+
+.dark {
+  background-image: url("images/cartoon_night_amazon.jpg");
+  color: #9ec3f9;
+}
+
+.dark .body_wrapper {
+  background-color: #1d2d6f90;
+  box-shadow: 3px 3px 10px #1d2e6f;
+  border: 2px solid #588ad5;
+}
+
+.dark .switch_to_dark {
+  box-shadow: 3px 3px 7px #1d2e6f;
+  border: 2px solid #2c5e1b;
+  color: #2c5e1b;
+  background-color: #faebd7;
+  padding: 0.8rem 2.2rem;
+}
+
+.day .switch_to_dark {
+  border: 2px solid #11922d;
+  color: #2c5e1b;
+  background-color: #faebd7;
+  box-shadow: 3px 3px 7px #faebd7;
+}
+
+.dark .reset_btn,
+.dark .start_btn {
+  border: 2px solid #7eacf2;
+  color: #91baf7;
+  background-color: #1d2e6f;
+  box-shadow: 3px 3px 7px #1d2e6f;
+}
+
+.dark .board-cover {
+  background-color: #1d2e6f;
+  border: 2px solid #7eacf2;
+}
+
+.dark .playboard {
+  background-color: #041139;
+  box-shadow: 3px 3px 7px #1d2e6f;
+  border: 2px solid #588ad5;
+}
+
+.dark .arrow_button,
+.dark .score_list {
+  background-color: #1d2e6f;
+  box-shadow: 3px 3px 7px #1d2e6f;
+  border: 2px solid #588ad5;
+  color: #91baf7;
+}
+
+.dark .score_header {
+  background-color: #588ad5;
+  color: #1d2e6f;
+}
+
+.dark .arrow_button_one:active {
+  box-shadow: 2px 2px 10px #91baf76e;
+}
+
+.dark .start_btn:active,
+.dark .reset_btn:active,
+.dark .arrow_button_two:active,
+.dark .arrow_button_three:active,
+.dark .arrow_button_four:active {
+  box-shadow: 2px 2px 10px #91baf76e;
+}

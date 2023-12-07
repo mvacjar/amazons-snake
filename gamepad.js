@@ -1,21 +1,19 @@
-// Declaring variables
-const arrowKeys = { left: false, up: false, right: false, down: false }; // setting object of arrowkeys to false
-let speedKeys = { up: false, down: false };
+export { controllerIndex, speedKeys, arrowKeys };
+
+let speedKeys = { up: false, down: false }; //set speedkeys up and down to false
+
 let controllerIndex = null;
 
-//These three needs to be in the initGame loop
-//handleGamepadInput();
-//changeSpeed();
-//check if there is a controller connected, and if so run handleGamepadConnected
-//window.addEventListener("gamepadconnected", handleGamepadConnected);
+const arrowKeys = { left: false, up: false, right: false, down: false }; // setting object of arrowkeys to false
+
 
 //set controllerIndex to the index of the connected controller.
 export function handleGamepadConnected(event) {
   controllerIndex = event.gamepad.index;
   console.log("Gamepad connected. Index: ", controllerIndex);
-}
+};
 
-export function handleGamepadInput() {
+export function handleGamepadInput(arrowKeys, speedkeys) {
   if (controllerIndex !== null) {
     const gamepad = navigator.getGamepads()[controllerIndex];
     const axes = gamepad.axes;
@@ -48,24 +46,6 @@ export function handleGamepadInput() {
       arrowKeys.right = true;
     }
   }
-}
+};
 
-// Handle arrow key presses. If an arrowkey is pressed then bolean is set to true.
-document.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowLeft") arrowKeys.left = true;
-  if (event.key === "ArrowUp") arrowKeys.up = true;
-  if (event.key === "ArrowRight") arrowKeys.right = true;
-  if (event.key === "ArrowDown") arrowKeys.down = true;
-  if (event.key === " ") (speedKeys.up = true), console.log(speedKeys);
-  if (event.key === "Shift") (speedKeys.down = true), console.log(speedKeys);
-});
 
-// Handle arrow key releases. When an arrowkey is released the bolean is set to false.
-document.addEventListener("keyup", (event) => {
-  if (event.key === "ArrowLeft") arrowKeys.left = false;
-  if (event.key === "ArrowUp") arrowKeys.up = false;
-  if (event.key === "ArrowRight") arrowKeys.right = false;
-  if (event.key === "ArrowDown") arrowKeys.down = false;
-  if (event.key === " ") (speedKeys.up = false), console.log(speedKeys);
-  if (event.key === "Shift") (speedKeys.down = false), console.log(speedKeys);
-});

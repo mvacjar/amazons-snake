@@ -133,10 +133,12 @@ button {
 
 .playboard .food {
   background-color: #ff003d;
+  border-radius: 40% 40% 60% 60%;
 }
 
 .playboard .head {
   background-color: rgb(193, 255, 7);
+  border-radius: 20%;
 }
 
 /* Timmer and Score List */

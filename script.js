@@ -1,9 +1,8 @@
 import { countdown } from "./timer.js";
 import { checkScore } from "./score.js";
+import { handleGamepadConnected, handleGamepadInput, controllerIndex, speedKeys, arrowKeys } from "./gamepad.js";
 
 // Declaring variables
-const arrowKeys = { left: false, up: false, right: false, down: false }; // setting object of arrowkeys to false
-let speedKeys = { up: false, down: false };
 
 const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
@@ -131,6 +130,27 @@ const changeDirection = (e) => {
   }
 };
 
+function handleGamepadInputObjectChange() {
+  // Handle gamepad buttons
+  if (arrowKeys.up && velocityY !== 1) {
+    velocityX = 0;
+    velocityY = -1;
+    console.log("controllerUP");
+  } else if (arrowKeys.down && velocityY !== -1) {
+    velocityX = 0;
+    velocityY = 1;
+    console.log("controllerDown");
+  } else if (arrowKeys.left && velocityX !== 1) {
+    velocityX = -1;
+    velocityY = 0;
+    console.log("controllerLeft");
+  } else if (arrowKeys.right && velocityX !== -1) {
+    velocityX = 1;
+    velocityY = 0;
+    console.log("controllerRight");
+  }
+};
+
 function changeSpeed() {
   // Get the current timestamp in milliseconds
   const currentTime = new Date().getTime();
@@ -222,7 +242,9 @@ const initGame = () => {
   }
 
   playBoard.innerHTML = placeItem;
+  handleGamepadInput(arrowKeys, speedKeys);
   changeSpeed();
+  handleGamepadInputObjectChange();
 };
 
 // Start timer when start button is clicked
@@ -244,7 +266,11 @@ changeFoodPosition();
 changeSpeed();
 setIntervalId = setInterval(initGame, speed);
 document.addEventListener("keydown", changeDirection);
-initGame();
+
+
+//check if there is a controller connected, and if so run handleGamepadConnected
+window.addEventListener("gamepadconnected", handleGamepadConnected);
+window.addEventListener("gamepadbuttondown", handleGamepadInputObjectChange);
 
 
 // Handle arrow key presses for the controllerinput. If an arrowkey is pressed then bolean is set to true.

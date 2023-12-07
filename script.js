@@ -2,6 +2,9 @@ import { countdown } from "./timer.js";
 import { checkScore } from "./score.js";
 
 // Declaring variables
+const arrowKeys = { left: false, up: false, right: false, down: false }; // setting object of arrowkeys to false
+let speedKeys = { up: false, down: false };
+
 const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
 const controls = document.querySelectorAll(".arrow_keys_container div");
@@ -24,6 +27,8 @@ let timer = { minutes: "00", seconds: 30 };
 let timerEl = document.querySelector("#timer");
 let timerSetInterval;
 timerEl.textContent = "00:30";
+let lastSpeedChangeTime = 0; // Variable to store the time of the last speed change
+let changeSpeedMarker = 0; // set the speed level 0-4
 
 // Declare top player list and variables to call localStorage items
 let player1Name = JSON.parse(localStorage.getItem("player1Name")) || "Player 1";
@@ -124,7 +129,38 @@ const changeDirection = (e) => {
     velocityX = 1;
     velocityY = 0;
   }
-  initGame();
+};
+
+function changeSpeed() {
+  // Get the current timestamp in milliseconds
+  const currentTime = new Date().getTime();
+
+  // Check if at least one second (1000 milliseconds) has passed since the last speed change
+  if (currentTime - lastSpeedChangeTime >= 1000) {
+    if (
+      speedKeys.up === true &&
+      changeSpeedMarker >= 0 &&
+      changeSpeedMarker <= 3
+    ) {
+      // Increment changeSpeedMarker to see what level of speed we are having
+      changeSpeedMarker++;
+      speed /= 2; //devide speed by half to double the speed in game
+      lastSpeedChangeTime = currentTime; // Update last speed change time
+      clearInterval(setIntervalId); //clear the current setintervalid
+      setIntervalId = setInterval(initGame, speed); //set the new interval with the new halfed speed
+    } else if (
+      speedKeys.down === true &&
+      changeSpeedMarker >= 1 &&
+      changeSpeedMarker <= 3
+    ) {
+      // Decrement changeSpeedMarker to see what level of speed we are having
+      changeSpeedMarker--;
+      speed *= 2; //double speed to half the speed in game
+      lastSpeedChangeTime = currentTime; // Update last speed change time
+      clearInterval(setIntervalId); //clear the current setintervalid
+      setIntervalId = setInterval(initGame, speed); //set the new interval with the new doubled speed
+    }
+  }
 };
 
 // Initializing the game when function is called by intervals
@@ -186,6 +222,7 @@ const initGame = () => {
   }
 
   playBoard.innerHTML = placeItem;
+  changeSpeed();
 };
 
 // Start timer when start button is clicked
@@ -200,21 +237,24 @@ startBtnEl.addEventListener("click", function () {
   }, 1000);
 });
 
-// Sett the double speed
-function speedUp() {
-  document.addEventListener("keydown", function (e) {
-    if (e.key == " ") {
-      speed /= 2;
-      clearInterval(setIntervalId);
-      setIntervalId = setInterval(initGame, speed);
-      console.log(speed);
-    }
-    return speed;
-  });
-}
+
 
 changeFoodPosition();
 // updateOnLaunch();
-speedUp();
+changeSpeed();
 setIntervalId = setInterval(initGame, speed);
 document.addEventListener("keydown", changeDirection);
+initGame();
+
+
+// Handle arrow key presses for the controllerinput. If an arrowkey is pressed then bolean is set to true.
+document.addEventListener("keydown", (event) => {
+  if (event.key === " ") (speedKeys.up = true, console.log("Speed up"));
+  if (event.key === "Shift") (speedKeys.down = true, console.log("Speed Down"));
+});
+
+// Handle arrow key releases for the controller input. When an arrowkey is released the bolean is set to false.
+document.addEventListener("keyup", (event) => {
+  if (event.key === " ") (speedKeys.up = false), (speedKeys);
+  if (event.key === "Shift") (speedKeys.down = false), (speedKeys);
+});

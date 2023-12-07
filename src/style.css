@@ -227,7 +227,7 @@ button {
     flex-direction: column;
     padding: 2rem 4rem;
     margin: 3rem;
-    width: 80vmin;
+    width: 60rem;
     height: 90rem;
   }
 
@@ -411,18 +411,23 @@ button {
 }
 @media screen and (max-width: 31rem) {
   .body_wrapper {
-    height: 70rem;
+    height: 77rem;
+    width: 90vmin;
   }
 
   .title {
     font-size: 2.4rem;
   }
 
+  .description_section {
+    width: 65vmin;
+  }
+
   .board_cover,
   .playboard_wrapper {
     margin-top: 1.5rem;
-    width: 16rem;
-    height: 16rem;
+    width: 20rem;
+    height: 20rem;
   }
 
   .arrow_button_one,
@@ -433,7 +438,25 @@ button {
     line-height: 1.4;
   }
 
+  .arrow_button_one {
+    width: 25vmin;
+    height: 10vmin;
+  }
+
+  .arrow_button_two,
+  .arrow_button_four {
+    width: 20vmin;
+    height: 10vmin;
+  }
+
+  .arrow_button_three {
+    width: 24vmin;
+    height: 10vmin;
+  }
+
   .arrow_button_five {
+    width: 65vmin;
+    height: 10vmin;
     font-size: 1.1rem;
     line-height: 0.3;
   }

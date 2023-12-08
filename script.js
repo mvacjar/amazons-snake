@@ -14,6 +14,7 @@ const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
 const controls = document.querySelectorAll(".arrow_keys_container div");
 let foodX, foodY;
+let bombX, bombY; 
 let snakeX = 5,
   snakeY = 10;
 let velocityX = 0,
@@ -72,6 +73,14 @@ player3ScoreEl.textContent = player3Score;
 const changeFoodPosition = () => {
   foodX = Math.floor(Math.random() * 30) + 1;
   foodY = Math.floor(Math.random() * 30) + 1;
+};
+
+const changeBombPosition = () => {
+  bombX = Math.floor(Math.random() * 30) + 1;
+  bombY = Math.floor(Math.random() * 30) + 1;
+     if (bombY === foodY && bombX === foodX) {
+      changeBombPosition();
+    }
 };
 
 // Finish the game and alert it
@@ -177,6 +186,7 @@ const initGame = () => {
     );
 
   let placeItem = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`; // Place the food
+  let placeBomb = `<div class="bomb" style="grid-area: ${bombY} / ${bombX}"></div>`; // Place the bomb
 
   // If snake overlaps food, change food position and make snake grow +1
   if (snakeX === foodX && snakeY === foodY) {
@@ -185,6 +195,19 @@ const initGame = () => {
     currentScore += 1;
     currentScoreEl.textContent = currentScore;
   }
+
+    // If snake overlaps bomb, change bomb position and make snake shrink -1
+    if (snakeX === bombX && snakeY === bombY) {
+      if (snakeBody.length > 1) {
+        changeBombPosition();
+        snakeBody.pop([bombX, bombY]);
+        currentScore -= 1;
+        currentScoreEl.textContent = currentScore;
+      }
+      else {
+        gameOver.state = true;
+      }
+    }
 
   // Push the fruit position to the 0/last element of the body-array
   for (let i = snakeBody.length - 1; i > 0; i--) {
@@ -216,7 +239,7 @@ const initGame = () => {
       gameOver.state = true;
     }
   }
-
+  placeItem += placeBomb;
   playBoard.innerHTML = placeItem;
   handleGamepadInput(arrowKeys, speedKeys);
   changeSpeed();
@@ -236,6 +259,7 @@ startBtnEl.addEventListener("click", function () {
 });
 
 changeFoodPosition();
+changeBombPosition();
 changeSpeed();
 setIntervalId = setInterval(initGame, speed);
 document.addEventListener("keydown", changeDirection);

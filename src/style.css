@@ -143,6 +143,11 @@ button {
   border-radius: 20%;
 }
 
+.playboard .bomb {
+  background-color: yellow;
+  border-radius: 30%;
+}
+
 /* Timmer and Score List */
 
 .control_wrapper {

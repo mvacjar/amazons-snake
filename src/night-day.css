@@ -43,8 +43,10 @@
   box-shadow: 3px 3px 7px #0e1942;
 }
 
-.dark .playboard {
+.dark .playboard,
+.dark .modal__inner {
   background-color: #041139;
+  color: #588ad5;
   box-shadow: 3px 3px 7px #0e1942;
   border: 2px solid #588ad5;
 }

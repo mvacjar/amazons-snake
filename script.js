@@ -26,10 +26,10 @@ let speed = 200;
 let currentScore = 0;
 let currentScoreEl = document.querySelector("#currentScore");
 currentScoreEl.textContent = currentScore;
-let timer = { minutes: "00", seconds: 30 };
+let timer = { minutes: "00", seconds: 60 };
 let timerEl = document.querySelector("#timer");
 let timerSetInterval;
-timerEl.textContent = "00:30";
+timerEl.textContent = "00:60";
 let lastSpeedChangeTime = 0; // Variable to store the time of the last speed change
 let changeSpeedMarker = 0; // set the speed level 0-4
 
@@ -67,7 +67,6 @@ let player3NameEl = document.querySelector("#player3Name");
 let player3ScoreEl = document.querySelector("#player3Score");
 player3NameEl.textContent = player3Name;
 player3ScoreEl.textContent = player3Score;
-
 
 // Place the fruit (food) randomly
 const changeFoodPosition = () => {

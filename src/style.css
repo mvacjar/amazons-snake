@@ -295,9 +295,14 @@ button {
   margin: 0;
 }
 
+.link_netlify {
+  color: #faebd7;
+  text-shadow: 1px 1px 2px #1b2b1f;
+}
+
 .link_netlify a {
   text-decoration: none;
-  color: #faebd7;
+  color: #77fd4a;
 }
 
 @media screen and (max-width: 60rem) {

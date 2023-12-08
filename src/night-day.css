@@ -28,7 +28,9 @@
 }
 
 .dark .reset_btn,
-.dark .start_btn {
+.dark .start_btn,
+.dark .modal_button,
+.dark #closeButton {
   border: 2px solid #7eacf2;
   color: #91baf7;
   background-color: #1d2e6f;

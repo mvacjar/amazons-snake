@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
+    <div class="modal" id="exampleModal">
+      <div class="modal__inner">
+        <h1 id="text_modal"></h1>
+        <button data-modal-close id="closeButton" class="closeButton">
+          Close
+        </button>
+      </div>
+    </div>
+
     <div class="body_wrapper" id="body_wrapper">
       <div class="header_wrapper">
         <div class="header">
@@ -90,6 +99,11 @@
           </div>
         </div>
       </div>
+      <div class="modal_wrapper">
+        <button data-modal="exampleModal" class="modal_button">
+          Press here to warm up!
+        </button>
+      </div>
     </div>
     <footer>
       <div class="link_netlify">
@@ -99,5 +113,6 @@
     </footer>
     <script src="script.js" type="module"></script>
     <script src="darkMode.js"></script>
+    <script src="modal.js"></script>
   </body>
 </html>

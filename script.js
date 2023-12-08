@@ -79,6 +79,7 @@ const changeBombPosition = () => {
   bombY = Math.floor(Math.random() * 30) + 1;
   if (bombY === foodY && bombX === foodX) {
     changeBombPosition();
+    changeFoodPosition();
   }
 };
 
@@ -190,6 +191,7 @@ const initGame = () => {
   // If snake overlaps food, change food position and make snake grow +1
   if (snakeX === foodX && snakeY === foodY) {
     changeFoodPosition();
+    changeBombPosition();
     snakeBody.push([foodX, foodY]);
     currentScore += 1;
     currentScoreEl.textContent = currentScore;
@@ -199,6 +201,7 @@ const initGame = () => {
   if (snakeX === bombX && snakeY === bombY) {
     if (snakeBody.length > 1) {
       changeBombPosition();
+      changeFoodPosition();
       snakeBody.pop([bombX, bombY]);
       currentScore -= 1;
       currentScoreEl.textContent = currentScore;

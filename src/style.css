@@ -39,6 +39,58 @@ button {
   margin: 3rem 3rem 1rem;
 }
 
+/* Modal */
+
+.modal_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  z-index: 100;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 0);
+  visibility: hidden;
+  transition: all 0.5s;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal--show {
+  visibility: visible;
+  background-color: rgb(0 0 0 / 0.75);
+  z-index: 100;
+}
+
+.modal__inner {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem 2.5rem;
+  background-color: #fff;
+  transition: translate 0.5s, opacity 0.5s;
+  opacity: 0;
+  translate: 0 -10%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal--show .modal__inner {
+  opacity: 1;
+  translate: 0 0;
+  z-index: 100;
+}
+
 /* Title and switch button */
 
 .header_wrapper {
@@ -144,8 +196,21 @@ button {
 }
 
 .playboard .bomb {
-  background-color: yellow;
-  border-radius: 30%;
+  background-color: #ff8400;
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  );
 }
 
 /* Timmer and Score List */

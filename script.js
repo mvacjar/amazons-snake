@@ -13,7 +13,7 @@ const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
 const controls = document.querySelectorAll(".arrow_keys_container div");
 let foodX, foodY;
-let bombX, bombY; 
+let bombX, bombY;
 let snakeX = 5,
   snakeY = 10;
 let velocityX = 0,
@@ -73,12 +73,13 @@ const changeFoodPosition = () => {
   foodY = Math.floor(Math.random() * 30) + 1;
 };
 
+// Place the boomb randomly
 const changeBombPosition = () => {
   bombX = Math.floor(Math.random() * 30) + 1;
   bombY = Math.floor(Math.random() * 30) + 1;
-     if (bombY === foodY && bombX === foodX) {
-      changeBombPosition();
-    }
+  if (bombY === foodY && bombX === foodX) {
+    changeBombPosition();
+  }
 };
 
 // Finish the game and alert it
@@ -194,18 +195,17 @@ const initGame = () => {
     currentScoreEl.textContent = currentScore;
   }
 
-    // If snake overlaps bomb, change bomb position and make snake shrink -1
-    if (snakeX === bombX && snakeY === bombY) {
-      if (snakeBody.length > 1) {
-        changeBombPosition();
-        snakeBody.pop([bombX, bombY]);
-        currentScore -= 1;
-        currentScoreEl.textContent = currentScore;
-      }
-      else {
-        gameOver.state = true;
-      }
+  // If snake overlaps bomb, change bomb position and make snake shrink -1
+  if (snakeX === bombX && snakeY === bombY) {
+    if (snakeBody.length > 1) {
+      changeBombPosition();
+      snakeBody.pop([bombX, bombY]);
+      currentScore -= 1;
+      currentScoreEl.textContent = currentScore;
+    } else {
+      gameOver.state = true;
     }
+  }
 
   // Push the fruit position to the 0/last element of the body-array
   for (let i = snakeBody.length - 1; i > 0; i--) {

@@ -9,7 +9,6 @@ import {
 } from "./gamepad.js";
 
 // Declaring variables
-
 const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
 const controls = document.querySelectorAll(".arrow_keys_container div");
@@ -114,8 +113,8 @@ const changeDirection = (e) => {
   }
 };
 
+// Handle gamepad buttons
 function handleGamepadInputObjectChange() {
-  // Handle gamepad buttons
   if (arrowKeys.up && velocityY !== 1) {
     velocityX = 0;
     velocityY = -1;
@@ -135,8 +134,8 @@ function handleGamepadInputObjectChange() {
   }
 }
 
+// Get the current timestamp in milliseconds
 function changeSpeed() {
-  // Get the current timestamp in milliseconds
   const currentTime = new Date().getTime();
 
   // Check if at least one second (1000 milliseconds) has passed since the last speed change

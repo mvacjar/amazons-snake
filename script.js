@@ -11,7 +11,7 @@ import {
 // Declaring variables
 const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
-const controls = document.querySelectorAll(".arrow_keys_container div");
+const controls = document.querySelectorAll(".arrow_keys_container div");  //set all the divs inside the arrow_keys_container to the object controls
 let foodX, foodY;
 let bombX, bombY;
 let snakeX = 5,
@@ -101,7 +101,6 @@ controls.forEach((button) =>
 );
 
 // Change the direction of the snake and avoid overlap
-
 const changeDirection = (e) => {
   if (e.key === "ArrowUp" && velocityY != 1) {
     velocityX = 0;

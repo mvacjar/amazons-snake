@@ -91,6 +91,9 @@ const handleGameOver = () => {
 };
 
 // Calling changeDirection on each key click and passing key dataset value as an object
+// for each element that is classed as button put them in a object called controls.
+// add eventlistener for click on each of those elements in the object.
+// run changeDirection if any of the buttons are clicked and set the key to the button that was clicked.
 controls.forEach((button) =>
   button.addEventListener("click", () =>
     changeDirection({ key: button.dataset.key })
@@ -98,11 +101,11 @@ controls.forEach((button) =>
 );
 
 // Change the direction of the snake and avoid overlap
+
 const changeDirection = (e) => {
   if (e.key === "ArrowUp" && velocityY != 1) {
     velocityX = 0;
     velocityY = -1;
-    console.log(velocityY);
   } else if (e.key === "ArrowDown" && velocityY != -1) {
     velocityX = 0;
     velocityY = 1;
@@ -112,6 +115,19 @@ const changeDirection = (e) => {
   } else if (e.key === "ArrowRight" && velocityX != -1) {
     velocityX = 1;
     velocityY = 0;
+    // if the button(div) with the data-key Shift or SpaceBar is clicked, set speedkeys to true and run changeSpeed. then change speedkey back to false. (otherwise the speedkey is true and everytime changedirection is run the speed increses.)
+  } else if (e.key === "Shift") {
+    speedKeys.down = true;
+    changeSpeed();
+      if (speedKeys.down === true) {
+        speedKeys.down = false;
+      }
+  } else if (e.key === "SpaceBar" || e.key === " ") {
+    speedKeys.up = true;
+    changeSpeed();
+      if (speedKeys.up === true) {
+        speedKeys.up = false;
+      }
   }
 };
 
@@ -120,21 +136,18 @@ function handleGamepadInputObjectChange() {
   if (arrowKeys.up && velocityY !== 1) {
     velocityX = 0;
     velocityY = -1;
-    console.log("controllerUP");
   } else if (arrowKeys.down && velocityY !== -1) {
     velocityX = 0;
     velocityY = 1;
-    console.log("controllerDown");
   } else if (arrowKeys.left && velocityX !== 1) {
     velocityX = -1;
     velocityY = 0;
-    console.log("controllerLeft");
   } else if (arrowKeys.right && velocityX !== -1) {
     velocityX = 1;
     velocityY = 0;
-    console.log("controllerRight");
   }
 }
+
 
 // Get the current timestamp in milliseconds
 function changeSpeed() {
@@ -197,7 +210,7 @@ const initGame = () => {
     currentScoreEl.textContent = currentScore;
   }
 
-  // If snake overlaps bomb, change bomb position and make snake shrink -1
+  // If snake overlaps bomb, change bomb and food position and make snake shrink -1
   if (snakeX === bombX && snakeY === bombY) {
     if (snakeBody.length > 1) {
       changeBombPosition();
@@ -210,7 +223,7 @@ const initGame = () => {
     }
   }
 
-  // Push the fruit position to the 0/last element of the body-array
+  // Move the fruit position from the 0 position to the last element of the body-array
   for (let i = snakeBody.length - 1; i > 0; i--) {
     snakeBody[i] = snakeBody[i - 1];
   }
@@ -240,7 +253,7 @@ const initGame = () => {
       gameOver.state = true;
     }
   }
-  placeItem += placeBomb;
+  placeItem += placeBomb; // add the placeBomb to the PlaceItem before it is placed on the playBoard
   playBoard.innerHTML = placeItem;
   handleGamepadInput(arrowKeys, speedKeys);
   changeSpeed();
@@ -268,15 +281,3 @@ document.addEventListener("keydown", changeDirection);
 //check if there is a controller connected, and if so run handleGamepadConnected
 window.addEventListener("gamepadconnected", handleGamepadConnected);
 window.addEventListener("gamepadbuttondown", handleGamepadInputObjectChange);
-
-// Handle arrow key presses for the controllerinput. If an arrowkey is pressed then bolean is set to true.
-document.addEventListener("keydown", (event) => {
-  if (event.key === " ") (speedKeys.up = true), console.log("Speed up");
-  if (event.key === "Shift") (speedKeys.down = true), console.log("Speed Down");
-});
-
-// Handle arrow key releases for the controller input. When an arrowkey is released the bolean is set to false.
-document.addEventListener("keyup", (event) => {
-  if (event.key === " ") (speedKeys.up = false), speedKeys;
-  if (event.key === "Shift") (speedKeys.down = false), speedKeys;
-});

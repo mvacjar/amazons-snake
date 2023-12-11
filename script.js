@@ -11,7 +11,7 @@ import {
 // Declaring variables
 const playBoard = document.querySelector("#playboard");
 let startBtnEl = document.querySelector("#start_btn");
-const controls = document.querySelectorAll(".arrow_keys_container div");  //set all the divs inside the arrow_keys_container to the object controls
+const controls = document.querySelectorAll(".arrow_keys_container div"); //set all the divs inside the arrow_keys_container to the object controls
 let foodX, foodY;
 let bombX, bombY;
 let snakeX = 5,
@@ -28,7 +28,7 @@ currentScoreEl.textContent = currentScore;
 let timer = { minutes: "00", seconds: 60 };
 let timerEl = document.querySelector("#timer");
 let timerSetInterval;
-timerEl.textContent = "00:60";
+timerEl.textContent = "01:00";
 let lastSpeedChangeTime = 0; // Variable to store the time of the last speed change
 let changeSpeedMarker = 0; // set the speed level 0-4
 
@@ -118,15 +118,15 @@ const changeDirection = (e) => {
   } else if (e.key === "Shift") {
     speedKeys.down = true;
     changeSpeed();
-      if (speedKeys.down === true) {
-        speedKeys.down = false;
-      }
+    if (speedKeys.down === true) {
+      speedKeys.down = false;
+    }
   } else if (e.key === "SpaceBar" || e.key === " ") {
     speedKeys.up = true;
     changeSpeed();
-      if (speedKeys.up === true) {
-        speedKeys.up = false;
-      }
+    if (speedKeys.up === true) {
+      speedKeys.up = false;
+    }
   }
 };
 
@@ -146,7 +146,6 @@ function handleGamepadInputObjectChange() {
     velocityY = 0;
   }
 }
-
 
 // Get the current timestamp in milliseconds
 function changeSpeed() {

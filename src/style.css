@@ -75,7 +75,7 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 40vw;
+  width: 40vw;
   padding: 4rem 2.5rem 1.5rem;
   border-radius: 10px;
   border: 2px solid #2c5e1b;
@@ -499,7 +499,11 @@ button {
 @media screen and (max-width: 31rem) {
   .body_wrapper {
     height: 80rem;
-    width: 90vmin;
+    width: 95vmin;
+  }
+
+  .modal__inner {
+    width: 70vw;
   }
 
   .title {

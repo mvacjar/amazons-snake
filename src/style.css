@@ -515,7 +515,7 @@ button {
 }
 @media screen and (max-width: 31rem) {
   .body_wrapper {
-    height: 80rem;
+    height: 85rem;
     width: 95vmin;
   }
 
